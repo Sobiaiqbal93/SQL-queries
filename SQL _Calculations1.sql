@@ -30,4 +30,5 @@ where sales.transactions.market_code='Mark001';
 SELECT sum(sales.transactions.sales_qty) FROM sales.transactions INNER JOIN sales.date ON sales.transactions.order_date=sales.date.date
 where sales.transactions.market_code='Mark001' and sales.date.year=2020;   # total of sales Quantity through the whole period is "51210" and in 2020 it was 7262
 
+SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and transactions.currency="INR";
 
