@@ -29,6 +29,16 @@ where sales.transactions.market_code='Mark001';
               #------# total of sales Quantity through the  2020 for Chani 
 SELECT sum(sales.transactions.sales_qty) FROM sales.transactions INNER JOIN sales.date ON sales.transactions.order_date=sales.date.date
 where sales.transactions.market_code='Mark001' and sales.date.year=2020;   # total of sales Quantity through the whole period is "51210" and in 2020 it was 7262
-
+            # Revenue in 2020 From Chanai
 SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and transactions.currency="INR";
+             # Sale in 2020 in Chanai
+SELECT SUM(transactions.sales_qty) FROM sales.transactions INNER JOIN sales.date ON sales.transactions.order_date=sales.date.date where sales.date.year=2020 and sales.transactions.market_code="Mark001";
+              #Total Sale from 2017-2020
+SELECT SUM(sales_qty) FROM sales.transactions;
+              #One of the Top Five Customers
+SELECT SUM(sales.transactions.sales_amount) FROM sales.transactions INNER JOIN sales.customers ON sales.transactions.customer_code=sales.customers.customer_code where sales.customers.customer_code="Cus006";
+              #Top Product by Revenue
+SELECT SUM(sales_amount) FROM sales.transactions where product_code="Prod318";
+              # Top 5 Revenue by Product 
+SELECT product_code, SUM(sales_amount) FROM sales.transactions GROUP BY product_code ORDER BY SUM(sales_amount) DESC;
 
