@@ -41,4 +41,6 @@ SELECT SUM(sales.transactions.sales_amount) FROM sales.transactions INNER JOIN s
 SELECT SUM(sales_amount) FROM sales.transactions where product_code="Prod318";
               # Top 5 Revenue by Product 
 SELECT product_code, SUM(sales_amount) FROM sales.transactions GROUP BY product_code ORDER BY SUM(sales_amount) DESC;
+          #Profit Margin
+SELECT SUM(profit_margin)/ SUM(sales_amount) FROM sales.transactions where sales.transactions.market_code='Mark001';
 
