@@ -1,7 +1,7 @@
               # Total records Transaction
-SELECT count(*) FROM sales.transactions;  #  it's 150283
+SELECT count(*) FROM sales.transactions;  #  
               #Total records  from Customers
-SELECT count(*) FROM sales.customers;    # Total records it's 38
+SELECT count(*) FROM sales.customers;   
                #Select all Transaction data 
 SELECT * FROM sales.transactions;  
 			   #Total records for chanai
@@ -12,6 +12,8 @@ SELECT count(*) FROM sales.transactions where market_code='mark001';
 SELECT count(*) FROM sales.transactions where currency='USD';  #only 2 transaction made in USD
                
 SELECT * FROM sales.transactions limit 5;
+          #TOTAL Revenue
+SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and transactions.currency="INR\r" or transactions.currency="USD\r";
                #Join Transactions and Date tables
 SELECT sales.transactions.*,sales.date.* FROM sales.transactions INNER JOIN sales.date ON sales.transactions.order_date=sales.date.date;
                #how many transactions are perform in 2020
